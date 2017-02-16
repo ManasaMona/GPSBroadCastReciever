@@ -28,9 +28,9 @@ public class Activity2 extends AppCompatActivity {
     protected void onResume() {
         Log.d(TAG,"called ONRESUME");
         super.onResume();
-        receiver = new MyBroadcastReceiver();
-        intentFilter.addAction("android.location.PROVIDERS_CHANGED");
-        registerReceiver(receiver, intentFilter);
+//        receiver = new MyBroadcastReceiver();
+//        intentFilter.addAction("android.location.PROVIDERS_CHANGED");
+//        registerReceiver(receiver, intentFilter);
     }
 
     @Override
@@ -42,7 +42,7 @@ public class Activity2 extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(receiver);
+//        unregisterReceiver(receiver);
     }
 
     @Override

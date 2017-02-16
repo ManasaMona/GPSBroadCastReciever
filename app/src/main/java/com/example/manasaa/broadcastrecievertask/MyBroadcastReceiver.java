@@ -12,28 +12,19 @@ import android.widget.Toast;
  */
 
 public class MyBroadcastReceiver extends BroadcastReceiver {
-    private final static String TAG=MyBroadcastReceiver.class.getSimpleName();
+    private final static String TAG = MyBroadcastReceiver.class.getSimpleName();
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        Log.d(TAG," called ONRECEIVE");
-       if (intent.getAction().matches("android.location.PROVIDERS_CHANGED")) {
-            LocationManager manager= (LocationManager) context.getSystemService(Context.LOCATION_SERVICE );
-            if ( !manager.isProviderEnabled( LocationManager.GPS_PROVIDER ) ) {
-                Intent i = new Intent(context,AlertDailogBox.class);
+        Log.d(TAG, " called ONRECEIVE");
+        if (intent.getAction().matches("android.location.PROVIDERS_CHANGEDe")) {
+            LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
+            if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
+                Intent i = new Intent(context, AlertDailogBox.class);
                 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(i);
-                //context.getApplicationContext().startService(intent);
 
-           // }
-//            else {
-//                Toast.makeText(context, "GPS enabled",
-//                        Toast.LENGTH_SHORT).show();
-//                Toast.makeText(context, "GPS Dsabled",
-//                        Toast.LENGTH_SHORT).show();
-//
-           }
-
+            }
         }
     }
 }

@@ -11,14 +11,16 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG=MainActivity.class.getSimpleName();
     private Button button;
-     //static MyBroadcastReceiver receiver = new MyBroadcastReceiver();
-    private MyBroadcastReceiver receiver ;
-    private IntentFilter intentFilter= new IntentFilter();
-
+//    private MyBroadcastReceiver receiver = new MyBroadcastReceiver();
+        private IntentFilter intentFilter= new IntentFilter();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG,"called ONCREATE");
         super.onCreate(savedInstanceState);
+//        intentFilter.addAction("android.location.PROVIDERS_CHANGED");
+//        registerReceiver(receiver,intentFilter);
+
+
         setContentView(R.layout.activity_main);
 
         button=(Button)findViewById(R.id.button);
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onStart() {
         Log.d(TAG,"called ONSTART");
         super.onStart();
+//        intentFilter.addAction("android.location.PROVIDERS_CHANGEDe");
+//        registerReceiver(AppRecieverSettings.receiver,intentFilter);
+
 
     }
 
@@ -37,9 +42,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onResume() {
         Log.d(TAG,"called ONRESUME");
         super.onResume();
-        receiver= new MyBroadcastReceiver();
-        intentFilter.addAction("android.location.PROVIDERS_CHANGED");
-        registerReceiver(receiver,intentFilter);
 
 
     }
@@ -53,13 +55,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     protected void onPause() {
         super.onPause();
-        unregisterReceiver(receiver);
+
     }
 
     @Override
     protected void onDestroy() {
         Log.d(TAG,"called ONDESTSROY");
         super.onDestroy();
+
     }
 
     @Override
