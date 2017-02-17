@@ -15,10 +15,7 @@ import android.util.Log;
 
 public class AlertDailogBox extends Activity {
     private AlertBoxReciever alertBoxReciever;
-
     private IntentFilter intentFilter= new IntentFilter();
-
-
     private static final String TAG = AlertDailogBox.class.getSimpleName();
     final String action = Settings.ACTION_LOCATION_SOURCE_SETTINGS;
 
@@ -26,8 +23,6 @@ public class AlertDailogBox extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Log.d(TAG,"called ALERTBOXACTIVITY");
-
-
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder
                 .setTitle("GPS")
@@ -72,7 +67,7 @@ public class AlertDailogBox extends Activity {
     @Override
     protected void onStop() {
         super.onStop();
-        unregisterReceiver(alertBoxReciever);
+       unregisterReceiver(alertBoxReciever);
     }
 
 

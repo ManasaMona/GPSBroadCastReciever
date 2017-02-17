@@ -10,9 +10,9 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private final static String TAG=MainActivity.class.getSimpleName();
-    private Button button;
+    private Button mButton;
 //    private MyBroadcastReceiver receiver = new MyBroadcastReceiver();
-        private IntentFilter intentFilter= new IntentFilter();
+        //private IntentFilter intentFilter= new IntentFilter();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Log.d(TAG,"called ONCREATE");
@@ -23,9 +23,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         setContentView(R.layout.activity_main);
 
-        button=(Button)findViewById(R.id.button);
-
-        button.setOnClickListener(this);
+        mButton=(Button)findViewById(R.id.button);
+        mButton.setOnClickListener(this);
     }
 
     @Override

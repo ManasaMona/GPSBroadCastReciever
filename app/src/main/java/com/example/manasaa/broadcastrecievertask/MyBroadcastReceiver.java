@@ -17,7 +17,7 @@ public class MyBroadcastReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
         Log.d(TAG, " called ONRECEIVE");
-        if (intent.getAction().matches("android.location.PROVIDERS_CHANGEDe")) {
+        if (intent.getAction().matches("android.location.PROVIDERS_CHANGED")) {
             LocationManager manager = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
             if (!manager.isProviderEnabled(LocationManager.GPS_PROVIDER)) {
                 Intent i = new Intent(context, AlertDailogBox.class);
